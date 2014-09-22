@@ -21,4 +21,9 @@ def index(request):
     #return HttpResponse("Hello, world! <a href='/rango/about/'>About Rango</a>")
     
 def about(request):
-    return HttpResponse("About page. <a href='/rango/'>Back to index</a>")
+    context = RequestContext(request)
+    context_dict = {'aboutmessage': "This is the about message in context_dic. "}
+    return render_to_response('rango/about.html', context_dict, context)
+
+    
+    #return HttpResponse("About page. <a href='/rango/'>Back to index</a>")
